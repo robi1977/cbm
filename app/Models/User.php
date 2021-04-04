@@ -40,4 +40,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function samples()
+    {
+        return $this->hasMany(Sample::class, 'user_id');
+    }
+    public function can_writte()
+    {
+        $role = $this->role;
+        if($role =='admin' || $role =='writter'){
+            return true;
+        }
+        return false;
+    }
+    public function can_edit()
+    {
+        $role = $this->role;
+        if($role == 'admin' || $role=='reviewer'){
+            return true;
+        }
+        return false;
+    }
+    public function is_admin()
+    {
+        return ($this->role == 'admin')?true:false;
+    }
 }
