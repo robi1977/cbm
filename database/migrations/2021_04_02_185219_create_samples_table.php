@@ -33,7 +33,7 @@ class CreateSamplesTable extends Migration
             $table->foreign('capillary_id')->references('id')->on('capillaries')->onDelete('set null');
             $table->foreign('procedure_id')->references('id')->on('procedures')->onDelete('set null');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
-            $table->foreign('equipment_id')->references('id')->on('equipments')->onDelete('set null');
+            $table->foreign('equipment_id')->references('id')->on('equipment')->onDelete('set null');
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('set null');
         });
     }

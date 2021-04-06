@@ -21,7 +21,7 @@ class CreateLinksTable extends Migration
             $table->timestamps();
 
             $table->foreign('sample_id')->references('id')->on('samples')->onDelete('set null');
-            $table->foreign('link_cetegory_id')->references('id')->on('link_categories')->onDelete('set null');
+            $table->foreign('link_category_id')->references('id')->on('link_categories')->onDelete('set null');
         });
     }
 

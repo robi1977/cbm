@@ -16,11 +16,11 @@ class CreateParametersTable extends Migration
         Schema::create('parameters', function (Blueprint $table) {
             $table->id();
             $table->string('parameter_value');
-            $table->unsignedBigInteger('sample_id')->nullable();
+            $table->unsignedBigInteger('sample_id');
             $table->unsignedBigInteger('parameter_type_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('sample_id')->references('id')->on('samples')->onDelete('set null');
+            $table->foreign('sample_id')->references('id')->on('samples')->onDelete('cascade');
             $table->foreign('parameter_type_id')->references('id')->on('parameter_types')->onDelete('set null');
         });
     }
