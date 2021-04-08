@@ -1,21 +1,15 @@
-<ul class="nav flex-column">
-    <li class="nav-item">
-        <a class="nav-link" href="/profile">Profil</a>
-    </li>
-    <li class="nav-item">
-        <div class="row">
-            <a class="nav-link" href="#">
-                Split dropright
-            </a>
-            <i class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropright</span>
-            </i>
-            
-            <div class="dropdown-menu">
-                <a class="nav-link" href="#">coś tam, coś tam</a>
-                <a class="nav-link" href="#">Dupa</a>
-            </div> 
-        </div>
-    </li>
-<li>3</li>
-</ul>
+<div class="sidenav col-2">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+    <button class="dropdown-btn">Dropdown
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+    <a href="#contact">Search</a>
+  </div>
