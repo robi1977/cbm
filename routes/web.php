@@ -28,3 +28,22 @@ Route::get('/dashboard', function(){
 Route::get('/profile', function(){
     return view('profile.index');
 })->middleware('auth');
+
+Route::group(['middleware'=>'auth'], function(){
+
+    Route::resources([
+        'alloys'=> App\Http\Controllers\AlloyController::class,
+        'capillaries'=> App\Http\Controllers\CapillaryController::class,
+        'capillary_material'=> App\Http\Controllers\CapillaryMaterialController::class,
+        'equipment'=> App\Http\Controllers\EquipmentController::class,
+        'link_categories'=>App\Http\Controllers\LinkCategoryController::class,
+        'links'=>App\Http\Controllers\LinkController::class,
+        'parameters'=>App\Http\Controllers\ParameterController::class,
+        'parameter_types'=>App\Http\Controllers\ParameterTypeController::class,
+        'procedures'=>App\Http\Controllers\ProcedureController::class,
+        'projects'=>App\Http\Controllers\ProjectController::class,
+        'samples'=>App\Http\Controllers\SampleController::class,
+        'substrates'=>App\Http\Controllers\SubstrateController::class,
+        'supports'=>App\Http\Controllers\SupportController::class
+        ]);
+});

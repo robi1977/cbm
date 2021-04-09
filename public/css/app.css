@@ -10004,7 +10004,7 @@ h3 {
 }
 /* Fixed sidenav, full height */
 .sidenav {
-  height: 100%;
+  height: calc(100vw - 50px);
   position: fixed;
   z-index: 1;
   top: 55px;
