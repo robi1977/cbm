@@ -14,8 +14,11 @@
   <!-- Fonty wykorzystane na stronie -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"> --}}
   <!-- modyfikator stylu -->
+  <link rel="stylesheet" href="{{asset('css/all.css')}}">
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
+  <script src="{{asset('js/all.js')}}"></script>
 </head>
 <body class="w3-light-grey">
   <!--Górny pasek z logo i przyciskiem na menu -->
@@ -86,6 +89,9 @@
 
   <!--zawartość strony -->
   <div class="w3-main main-content">
+    @yield('header')
+    @yield('panels')
+    <hr/>
     @yield('content')
   </div> 
 <script>
