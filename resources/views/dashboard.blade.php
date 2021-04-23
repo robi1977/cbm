@@ -13,8 +13,6 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- Fonty wykorzystane na stronie -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"> --}}
   <!-- modyfikator stylu -->
   <link rel="stylesheet" href="{{asset('css/all.css')}}">
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -53,34 +51,31 @@
         <div class="w3-dropdown-hover">
           <button class="w3-button w3-bar-item">Testy<i class="fa fa-caret-down w3-right"></i></button>
           <div class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="" class="w3-bar-item w3-button">Lista</a>
-            <a href="" class="w3-bar-item w3-button">Nowy</a>
-            <a href="" class="w3-bar-item w3-button">Edycja</a>
-            <a href="" class="w3-bar-item w3-button">Szukaj</a>
+            <a href="{{url('/samples')}}" class="w3-bar-item w3-button">Lista</a>
+            <a href="{{url('/samples/create')}}" class="w3-bar-item w3-button">Nowy</a>
+            <a href="" class="w3-bar-item w3-button">Szukaj</a><!--TODO: link-->
           </div>
         </div>
         <div class="w3-dropdown-hover">
           <button class="w3-bar-item w3-button">Metale i stopy<i class="fa fa-caret-down w3-right"></i></button>
           <div class="w3-dropdown-content w3-bar-block w3-border">
-            <a href="" class="w3-bar-item w3-button">Lista</a>
-            <a href="" class="w3-bar-item w3-button">Nowy</a>
-            <a href="" class="w3-bar-item w3-button">Edycja</a>
-            <a href="" class="w3-bar-item w3-button">Szukaj</a>
+            <a href="{{url('alloys')}}" class="w3-bar-item w3-button">Lista</a>
+            <a href="{{url('alloys/create')}}" class="w3-bar-item w3-button">Nowy</a>
+            <a href="" class="w3-bar-item w3-button">Szukaj</a><!--TODO: link-->
           </div>
         </div>
         <div class="w3-dropdown-hover">
           <button class="w3-bar-item w3-button">Podłoża<i class="fa fa-caret-down w3-right"></i></button>
           <div class="w3-dropdown-content w3-bar-block w3-border">
-            <a href="" class="w3-bar-item w3-button">Lista</a>
-            <a href="" class="w3-bar-item w3-button">Nowy</a>
-            <a href="" class="w3-bar-item w3-button">Edycja</a>
-            <a href="" class="w3-bar-item w3-button">Szukaj</a>
+            <a href="{{url('substrates')}}" class="w3-bar-item w3-button">Lista</a>
+            <a href="{{url('substrates/create')}}" class="w3-bar-item w3-button">Nowy</a>
+            <a href="" class="w3-bar-item w3-button">Szukaj</a><!--TODO: link-->
           </div>
         </div>
-        <a href="" class="w3-bar-item w3-button">Aparatura</a>
-        <a href="" class="w3-bar-item w3-button">Procedury</a>
+        <a href="{{url('equipment')}}" class="w3-bar-item w3-button">Aparatura</a>
+        <a href="{{url('procedures')}}" class="w3-bar-item w3-button">Procedury</a>
         @if (auth()->user()->is_admin())
-          <a href="" class="w3-bar-item w3-button">Użytkownicy</a>
+          <a href="{{url('users')}}" class="w3-bar-item w3-button">Użytkownicy</a>
         @endif
       </div>
     </div>

@@ -4,7 +4,7 @@
 @endsection
 @section('header')
   <header class="w3-container page-header">   
-    <h5 class="w3-left"><b><i class="fa fa-dashboard"></i>Lista testów zwilżalności</b></h5>
+    <h5 class="w3-left"><b><i class="fa fa-dashboard"></i>Panel sterowania</b></h5>
     @if (Session::has('error'))
       <div class="w3-panel w3-pale-red w3-card">
         <span onclick="this.parentElement.style.display='none'"
@@ -32,7 +32,7 @@
         <div class="w3-clear"></div>
         <div class="w3-row">
           <h4 class="w3-left">Testy</h4>
-          <a href="" class="w3-right w3-btn w3-large w3-circle w3-metro-dark-red">+</a> <!-- TODO: uzupełnieć link-->
+          <a href="samples/create" class="w3-right w3-btn w3-large w3-circle w3-metro-dark-red">+</a> 
         </div>
         <div class="w3-clear"></div>
       </div>
@@ -44,7 +44,7 @@
         <div class="w3-clear"></div>
         <div class="w3-row">
           <h4 class="w3-left">Metale i stopy</h4>
-          <a href="" class="w3-right w3-btn w3-large w3-circle w3-metro-dark-blue">+</a> <!-- TODO: uzupełnieć link-->
+          <a href="alloys/create" class="w3-right w3-btn w3-large w3-circle w3-metro-dark-blue">+</a> 
         </div>
         <div class="w3-clear"></div>
       </div>
@@ -56,7 +56,7 @@
         <div class="w3-clear"></div>
         <div class="w3-row">
           <h4 class="w3-left">Podłoża</h4>
-          <a href="" class="w3-btn w3-large w3-circle w3-metro-dark-green w3-right">+</a> <!-- TODO: uzupełnieć link-->
+          <a href="substrates/create" class="w3-btn w3-large w3-circle w3-metro-dark-green w3-right">+</a> 
         </div>
         <div class="w3-clear"></div>
       </div>
@@ -65,7 +65,7 @@
 @endsection
 @section('content')
   <div class="w3-container">
-    <h4>Lista wprowadzonych próbek</h4>
+    <h4>Lista ostatnio dodanych próbek</h4>
     @if(Session::has('samples'))
       <table class="w3-table-all w3-hoverable w3-striped w3-bordered">
         <thead>
@@ -78,7 +78,7 @@
         <tbody>
           @foreach ($samples as $sample)
             <tr>
-              <td>#{{$sample['numer']}}</td>
+              <td>{{$sample['numer']}}</td>
               <td>{{$sample['opis']}}</td>
               <td>
                 <a href="" class="w3-metro-blue"><i class="fas fa-info-circle"></i></a><!--TODO: Uzupełnić o wywołanie modalu z informacjami szczegółowymi dla próbki-->

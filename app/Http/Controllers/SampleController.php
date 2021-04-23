@@ -14,12 +14,14 @@ class SampleController extends Controller
      */
     public function index()
     {
-        $samples=[
-            'numer'=>'2341',
-            'opis'=>"Al/Al2O3 700C 30min CH"
-        ];
+        // $samples=[
+        //     'numer'=>'2341',
+        //     'opis'=>"Al/Al2O3 700C 30min CH"
+        // ];
+        $samples=null;
         if($samples){
-            return view('dashboard.index')->with('success', "Wczytanie udane")->with('samples',$samples);
+            $success="Poprawnie wczytane dane";
+            return view('dashboard.index')->with('success', 'All done correct')->with('samples', $samples);
         }
         return view('dashboard.index')->with('error', 'Brak danych w bazie');
     }

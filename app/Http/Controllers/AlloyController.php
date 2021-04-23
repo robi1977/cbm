@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alloy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AlloyController extends Controller
 {
@@ -14,7 +15,12 @@ class AlloyController extends Controller
      */
     public function index()
     {
-        //
+        $alloys=Alloy::all();
+        dump($alloys);
+        if(!$alloys){
+            return view('dashboard.index')->with('error', 'Brak metali lub stopów do wyświetlenia');
+        }
+        return view('alloys.index', compact('alloys'));
     }
 
     /**
@@ -24,7 +30,10 @@ class AlloyController extends Controller
      */
     public function create()
     {
-        //
+        if(auth()->user()->can_writte()){
+            return view('alloys.create');
+        }
+        return redirect('dashboard.index')->with('error', 'Nie masz uprawnień do wprowadzania nowych wpisów');
     }
 
     /**
@@ -35,7 +44,26 @@ class AlloyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator=Validator::make($request->all(),[
+            'symbol'=>'required|unique:alloys|max:50',
+            'full_name'=>'required'
+        ]);
+        if($validator->fails()){
+            return redirect('alloys/create')->withErrors($validator)->withInput();
+        }
+
+        $alloy = new Alloy;
+        $alloy->symbol = $request->get('symbol');
+        $alloy->full_name = $request->get('full_name');
+        if($request->get('description')){
+            $alloy->description = $request->get('description');
+        } else {
+            $alloy->desctiption = "Nie dotyczy";
+        }
+
+        $alloy->save();
+
+        return redirect('alloys')->with('success', "Poprawnie dodano wpis do bazy");
     }
 
     /**
